@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="top.fwindpeak.rectest.MainActivity">
+
+    <EditText
+        android:id="@+id/editTextLog"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:singleLine="false"
+        android:scrollbars="vertical"
+        android:focusable="false"
+        android:clickable="true"
+        android:gravity="top"
+        android:layout_above="@+id/buttonStart"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_rec"
+        android:id="@+id/buttonStart"
+        android:layout_toLeftOf="@+id/cencer"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/cencer"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_rec"
+        android:id="@+id/buttonStop"
+        android:layout_toRightOf="@+id/cencer"
+        android:layout_alignParentBottom="true"
+ />
+</RelativeLayout>

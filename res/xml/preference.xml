@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="swap_channel"
+        android:title="交换录音通道">
+
+    </CheckBoxPreference>
+
+    <EditTextPreference
+        android:key="save_path"
+        android:singleLine="true"
+        android:defaultValue="@string/default_save_path"
+        android:title="音频文件保存路径"></EditTextPreference>
+
+</PreferenceScreen>
