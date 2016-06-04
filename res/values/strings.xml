@@ -9,4 +9,6 @@
     <string name="default_save_path">/sdcard/recorder</string>
     <string name="keys_save_path">keys_save_path</string>
     <string name="keys_swap_channel">keys_swap_channel</string>
+    <string name="keys_save_mono">keys_save_mono</string>
+    <string name="keys_save_stereo">keys_save_stereo</string>
 </resources>

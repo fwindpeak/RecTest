@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <EditTextPreference
+        android:defaultValue="@string/default_save_path"
+        android:key="save_path"
+        android:singleLine="true"
+        android:title="音频文件保存路径" >
+    </EditTextPreference>
 
     <CheckBoxPreference
         android:defaultValue="false"
-        android:key="swap_channel"
-        android:title="交换录音通道">
-
+        android:key="@string/keys_swap_channel"
+        android:title="交换录音通道" >
     </CheckBoxPreference>
-
-    <EditTextPreference
-        android:key="save_path"
-        android:singleLine="true"
-        android:defaultValue="@string/default_save_path"
-        android:title="音频文件保存路径"></EditTextPreference>
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/keys_save_mono"
+        android:title="保存单声道音频" >
+    </CheckBoxPreference>
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/keys_save_stereo"
+        android:title="保存双声道音频" >
+    </CheckBoxPreference>
 
 </PreferenceScreen>
