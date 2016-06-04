@@ -1,5 +1,6 @@
-package ai.t.rec;
+package ai.test.rec;
 
+import ai.t.rec.R;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;

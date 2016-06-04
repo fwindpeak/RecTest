@@ -1,4 +1,4 @@
-package ai.t.rec;
+package ai.test.rec;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

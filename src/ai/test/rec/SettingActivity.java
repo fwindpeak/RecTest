@@ -1,5 +1,6 @@
-package ai.t.rec;
+package ai.test.rec;
 
+import ai.t.rec.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;

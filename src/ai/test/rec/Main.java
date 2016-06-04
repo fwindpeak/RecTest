@@ -1,5 +1,6 @@
-package ai.t.rec;
+package ai.test.rec;
 
+import ai.t.rec.R;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -17,7 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends Activity implements View.OnClickListener,
+public class Main extends Activity implements View.OnClickListener,
 		MyRecorder.RecordCallback {
 
 
