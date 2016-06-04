@@ -6,15 +6,15 @@ import android.preference.PreferenceManager;
 
 public class ConfigUtil {
 
-	Context appContext = RecApplication.getContext();
+	static Context appContext = RecApplication.getContext();
 
-	private final String KEYS_SAVE_PATH = appContext
+	public static final String KEYS_SAVE_PATH = appContext
 			.getString(R.string.keys_save_path);
-	private final String KEYS_SWAP_CHANNEL = appContext
+	public static final String KEYS_SWAP_CHANNEL = appContext
 			.getString(R.string.keys_swap_channel);
-	private final String KEYS_SAVE_MONO = appContext
+	public static final String KEYS_SAVE_MONO = appContext
 			.getString(R.string.keys_save_mono);
-	private final String KEYS_SAVE_STEREO = appContext
+	public static final String KEYS_SAVE_STEREO = appContext
 			.getString(R.string.keys_save_stereo);
 
 	private static ConfigUtil mInstance;
@@ -48,6 +48,15 @@ public class ConfigUtil {
 	
 	public Boolean isSwapChannel(){
 		return mSp.getBoolean(KEYS_SWAP_CHANNEL, false);
+	}
+	
+	public void showInfo(InfoCallback callback){
+		String msg = "save_path:"+getSavePath()+"\n"
+				+"isSwapChannel:"+isSwapChannel()+"\n"
+				+"isSaveMono:"+isSaveMono()+"\n"
+				+"isSaveStereo:"+isSaveStereo()+"\n";
+				
+		callback.onUpdateInfo(msg);
 	}
 
 }

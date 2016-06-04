@@ -20,7 +20,9 @@ import android.widget.EditText;
 public class MainActivity extends Activity implements View.OnClickListener,
 		MyRecorder.RecordCallback {
 
+
 	private static final int ForSetting = 0;// 打开设置界面标记
+	private final int SETTING_REQUESTCODE = 2;
 
 	EditText etLog;
 	MyRecorder record;
@@ -37,7 +39,6 @@ public class MainActivity extends Activity implements View.OnClickListener,
 		btnStop = (Button) findViewById(R.id.buttonStop);
 		btnStart.setOnClickListener(this);
 		btnStop.setOnClickListener(this);
-
 	}
 
 	@Override
@@ -64,7 +65,7 @@ public class MainActivity extends Activity implements View.OnClickListener,
 		case R.id.menuSetting:
 			Intent intent = new Intent();
 			intent.setClass(this, SettingActivity.class);
-			startActivity(intent);
+			startActivityForResult(intent, SETTING_REQUESTCODE);
 			break;
 		case R.id.menuAbout:
 			showAbout();
@@ -143,5 +144,22 @@ public class MainActivity extends Activity implements View.OnClickListener,
 				.setMessage("录音测试工具 v" + getVersion())
 				.setPositiveButton("确定", null).show();
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == SETTING_REQUESTCODE){
+			ConfigUtil.getInstance().showInfo(new InfoCallback() {
+				
+				@Override
+				public void onUpdateInfo(String msg) {
+					// TODO Auto-generated method stub
+					printInfo(msg);
+				}
+			});
+		}
+	}
+
 
 }

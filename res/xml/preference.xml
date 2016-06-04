@@ -3,7 +3,7 @@
 
     <EditTextPreference
         android:defaultValue="@string/default_save_path"
-        android:key="save_path"
+        android:key="@string/keys_save_path"
         android:singleLine="true"
         android:title="音频文件保存路径" >
     </EditTextPreference>
@@ -14,6 +14,7 @@
         android:title="交换录音通道" >
     </CheckBoxPreference>
     <CheckBoxPreference
+        
         android:defaultValue="true"
         android:key="@string/keys_save_mono"
         android:title="保存单声道音频" >
