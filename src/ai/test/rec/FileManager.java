@@ -1,4 +1,4 @@
-package ai.t.rec;
+package ai.test.rec;
 
 import android.os.Environment;
 

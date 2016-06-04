@@ -1,4 +1,4 @@
-package ai.t.rec;
+package ai.test.rec;
 
 /**
  * Created by fwind on 2016/5/21.

@@ -8,7 +8,7 @@
     <string name="menu_about">关于</string>
     <string name="menu_exit">退出</string>
     <string name="menu_back">返回</string>
-    <string name="default_save_path">/sdcard/recorder</string>
+    <string name="default_save_path">/sdcard/rec</string>
     <string name="keys_save_path">keys_save_path</string>
     <string name="keys_swap_channel">keys_swap_channel</string>
     <string name="keys_save_mono">keys_save_mono</string>
