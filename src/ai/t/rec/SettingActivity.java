@@ -2,6 +2,7 @@ package ai.t.rec;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
@@ -11,6 +12,9 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
 import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View;
 
@@ -22,11 +26,20 @@ public class SettingActivity extends PreferenceActivity implements
 		OnSharedPreferenceChangeListener {
 
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
-		// TODO Auto-generated method stub
-		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.add(R.menu.pre_menu);
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater menuInflater = getMenuInflater();
+		menuInflater.inflate(R.menu.pre_menu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.preExit:
+				this.finish();
+			break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	CheckBoxPreference isRecMono, isRecStereo;
