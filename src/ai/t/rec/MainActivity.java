@@ -70,6 +70,9 @@ public class MainActivity extends Activity implements View.OnClickListener,
 		case R.id.menuAbout:
 			showAbout();
 			break;
+		case R.id.menuExit:
+			this.finish();
+			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
