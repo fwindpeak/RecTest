@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="SettingActivity"></activity>
+        <activity android:name="ai.test.rec.SettingActivity"></activity>
     </application>
 
 </manifest>
