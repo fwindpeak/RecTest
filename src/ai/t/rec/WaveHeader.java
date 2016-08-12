@@ -1,4 +1,4 @@
-package ai.test.rec;
+package ai.t.rec;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
