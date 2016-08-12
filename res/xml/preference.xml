@@ -15,7 +15,7 @@
     </CheckBoxPreference>
     <CheckBoxPreference
         
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:key="@string/keys_save_mono"
         android:title="保存单声道音频" >
     </CheckBoxPreference>
