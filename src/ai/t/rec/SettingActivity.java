@@ -1,4 +1,4 @@
-package ai.test.rec;
+package ai.t.rec;
 
 import ai.t.rec.R;
 import android.app.Activity;

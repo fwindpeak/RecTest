@@ -1,15 +1,14 @@
-package ai.test.rec;
+package ai.t.rec;
 
-import ai.t.rec.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +20,6 @@ import android.widget.EditText;
 public class Main extends Activity implements View.OnClickListener,
 		MyRecorder.RecordCallback {
 
-
 	private static final int ForSetting = 0;// 打开设置界面标记
 	private final int SETTING_REQUESTCODE = 2;
 
@@ -29,6 +27,8 @@ public class Main extends Activity implements View.OnClickListener,
 	MyRecorder record;
 
 	Button btnStart, btnStop;
+	
+	RecBroadcastReceive recBroadcastReceive;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,12 @@ public class Main extends Activity implements View.OnClickListener,
 		btnStop = (Button) findViewById(R.id.buttonStop);
 		btnStart.setOnClickListener(this);
 		btnStop.setOnClickListener(this);
+		
+		recBroadcastReceive = new RecBroadcastReceive();
+		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction("ai.rec.start");
+		intentFilter.addAction("ai.rec.stop");
+		registerReceiver(recBroadcastReceive, intentFilter);
 	}
 
 	@Override
@@ -103,18 +109,27 @@ public class Main extends Activity implements View.OnClickListener,
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.buttonStart:
-			printInfo("开始录音");
-			record = new MyRecorder(this);
-			record.start();
-			btnStart.setClickable(false);
+			onStartClick();
 			break;
 		case R.id.buttonStop:
-			record.stop();
-			printInfo("结束录音");
-			btnStart.setClickable(true);
+			onStopClick();
 			break;
 		}
 	}
+	
+	public void onStartClick(){
+		printInfo("开始录音");
+		record = new MyRecorder(this);
+		record.start();
+		btnStart.setClickable(false);
+	}
+	
+	public void onStopClick(){
+		record.stop();
+		printInfo("结束录音");
+		btnStart.setClickable(true);
+	}
+	
 
 	@Override
 	public void onUpdateUI(String msg) {
@@ -148,14 +163,14 @@ public class Main extends Activity implements View.OnClickListener,
 				.setMessage("录音测试工具 v" + getVersion())
 				.setPositiveButton("确定", null).show();
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		if(requestCode == SETTING_REQUESTCODE){
+		if (requestCode == SETTING_REQUESTCODE) {
 			ConfigUtil.getInstance().showInfo(new InfoCallback() {
-				
+
 				@Override
 				public void onUpdateInfo(String msg) {
 					// TODO Auto-generated method stub
@@ -165,5 +180,19 @@ public class Main extends Activity implements View.OnClickListener,
 		}
 	}
 
+	public class RecBroadcastReceive extends BroadcastReceiver {
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			// TODO Auto-generated method stub
+			String action = intent.getAction();
+			if(action.equals("ai.rec.start")){
+				onStartClick();
+			}else if(action.equals("ai.rec.stop")){
+				onStopClick();
+			}
+		}
+
+	}
 
 }
