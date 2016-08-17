@@ -40,7 +40,7 @@ public class ConfigUtil {
 	}
 	
 	public Boolean isSaveMono(){
-		return mSp.getBoolean(KEYS_SAVE_MONO, true);
+		return mSp.getBoolean(KEYS_SAVE_MONO, false);
 	}
 	
 	public Boolean isSaveStereo(){
