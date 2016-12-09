@@ -10,7 +10,7 @@
 
 停止录音
 
-> ai.rec.stop
+> adb shell baroadcast ai.rec.stop
 
 录音文件保存在这个路径
 
