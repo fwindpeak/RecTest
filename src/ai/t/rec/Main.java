@@ -126,7 +126,6 @@ public class Main extends Activity implements View.OnClickListener,
 	
 	public void onStopClick(){
 		record.stop();
-		printInfo("结束录音");
 		btnStart.setClickable(true);
 	}
 	
@@ -138,6 +137,7 @@ public class Main extends Activity implements View.OnClickListener,
 
 	@Override
 	public void onStop(String filePath) {
+		printInfo("结束录音");
 		printInfo(filePath);
 	}
 
